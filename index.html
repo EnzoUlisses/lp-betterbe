@@ -551,8 +551,12 @@
       .product-inner { grid-template-columns: 1fr; }
       .product-img { order: 2; }
       .product-text { order: 1; }
-      .cta-card { grid-template-columns: 1fr; }
-      .cta-img-col { height: 200px; }
+      .cta-card { grid-template-columns: 1fr; max-width: 100%; }
+      .cta-img-col { height: 240px; }
+      .cta-text { padding: 1.5rem; }
+      .cta-h2 { font-size: clamp(1.4rem, 6vw, 2rem); }
+      .cta-tags { flex-wrap: wrap; }
+      .cta-tag { font-size: 0.65rem; }
     }
     @media (max-width: 600px) {
       .w { padding: 0 1rem; }
