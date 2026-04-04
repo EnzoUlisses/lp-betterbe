@@ -53,6 +53,7 @@
       top: 0;
       z-index: 100;
     }
+    .nav-left { display: flex; align-items: center; gap: 0.75rem; }
     .nav-label {
       font-size: 0.68rem;
       font-weight: 600;
@@ -272,12 +273,6 @@
         max-width: 340px;
         scroll-snap-align: start;
       }
-      .t-dots {
-        display: flex !important;
-        justify-content: center;
-        gap: 0.5rem;
-        margin-top: 1rem;
-      }
     }
     .t-card {
       background: var(--white);
@@ -288,13 +283,7 @@
       flex-direction: column;
       gap: 0.9rem;
     }
-    .t-dots { display: none; }
-    .t-dot {
-      width: 7px; height: 7px; border-radius: 50%;
-      background: var(--border); transition: background 0.2s;
-      cursor: pointer;
-    }
-    .t-dot.active { background: var(--brand); }
+    .t-dots { display: none !important; }
     .t-stars { color: #f4a800; font-size: 0.9rem; letter-spacing: 2px; }
     .t-text { font-size: 0.9rem; line-height: 1.7; color: #444; flex: 1; font-style: italic; }
     .t-author { display: flex; align-items: center; gap: 0.7rem; }
@@ -541,6 +530,28 @@
       .w { padding: 0 1rem; }
       .hero-content { padding: 2rem 1rem; }
       .razao { padding: 2rem 0; }
+      /* nav mobile */
+      .nav { padding: 0 1rem; height: 52px; }
+      .nav-left { display: flex; align-items: center; gap: 0.5rem; min-width: 0; }
+      .nav-label {
+        font-size: 0.55rem;
+        letter-spacing: 0.06em;
+        line-height: 1.2;
+        color: var(--text-muted);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 80px;
+      }
+      .btn-pill {
+        font-size: 0.65rem;
+        padding: 0.42rem 0.85rem;
+        letter-spacing: 0.04em;
+        white-space: nowrap;
+      }
+      /* hero stars mobile */
+      .hero-stars { flex-wrap: wrap; row-gap: 0.2rem; }
+      .hero-stars .sep:last-of-type ~ span { font-size: 0.65rem; }
     }
   </style>
 </head>
@@ -548,11 +559,11 @@
 
 <!-- ── NAV ── -->
 <header class="nav">
-  <div>
-    <img src="https://betterbehealth.com.br/cdn/shop/files/Group.svg?v=1741801823&width=167" alt="BetterBe™" style="height:26px;width:auto;" />
+  <div class="nav-left">
+    <img src="https://betterbehealth.com.br/cdn/shop/files/Group.svg?v=1741801823&width=167" alt="BetterBe™" style="height:22px;width:auto;" />
+    <span class="nav-label">Artigo patrocinado</span>
   </div>
   <div class="nav-right">
-    <span class="nav-label">Artigo patrocinado</span>
     <a href="https://betterbehealth.com.br/products/suporte-de-jejum" class="btn-pill">Quero experimentar</a>
   </div>
 </header>
