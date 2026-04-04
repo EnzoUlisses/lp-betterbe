@@ -554,8 +554,9 @@
       .cta-img-col { height: 240px; }
       .cta-text { padding: 1.5rem; }
       .cta-h2 { font-size: clamp(1.4rem, 6vw, 2rem); }
-      .cta-tags { flex-wrap: wrap; }
-      .cta-tag { font-size: 0.65rem; }
+      .cta-tags { flex-wrap: nowrap; }
+      .cta-tag { font-size: 0.65rem; white-space: normal; flex: 1; }
+      .cta-tag:last-child { flex: 0 0 auto; }
     }
     @media (max-width: 600px) {
       .w { padding: 0 1rem; }
