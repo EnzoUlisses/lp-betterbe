@@ -79,70 +79,61 @@
 
     /* ── HERO ── */
     .hero {
-      background: var(--off-white);
+      background: var(--white);
       display: grid;
-      grid-template-columns: 55% 45%;
-      min-height: 540px;
+      grid-template-columns: 50% 50%;
+      min-height: 580px;
       border-bottom: 1px solid var(--border);
     }
     .hero-content {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 4rem 3rem 4rem 6rem;
-      gap: 1.4rem;
+      padding: 4rem 3.5rem 4rem 6rem;
+      gap: 1.6rem;
     }
-    .hero-eyebrow {
+    .hero-stars {
       display: flex;
       align-items: center;
-      gap: 0.55rem;
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.14em;
+      gap: 0.5rem;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: var(--brand);
+      color: var(--text-muted);
+      font-family: var(--font-mono);
     }
-    .hero-eyebrow::before {
-      content: '';
-      display: block;
-      width: 22px;
-      height: 2px;
-      background: var(--brand);
-      flex-shrink: 0;
-    }
+    .hero-stars .stars { color: #f4a800; font-size: 0.85rem; letter-spacing: 2px; }
+    .hero-stars .sep { color: var(--border); }
     .hero-h1 {
-      font-size: clamp(1.9rem, 3vw, 3rem);
-      font-weight: 800;
-      line-height: 1.1;
+      font-size: clamp(1.6rem, 2.4vw, 2.4rem);
+      font-weight: 400;
+      line-height: 1.18;
       color: var(--black);
       letter-spacing: -0.01em;
     }
     .hero-h1 em { font-style: normal; color: var(--brand); }
     .hero-sub {
-      font-size: 0.98rem;
-      line-height: 1.7;
+      font-size: 0.85rem;
+      line-height: 1.75;
       color: var(--text-secondary);
       max-width: 400px;
+      font-family: var(--font-mono);
     }
     .hero-meta {
       display: flex;
       align-items: center;
       flex-wrap: wrap;
       gap: 0.5rem 0.75rem;
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       color: var(--text-muted);
-      padding-top: 1.2rem;
-      border-top: 1px solid var(--border);
+      font-family: var(--font-mono);
     }
     .hero-meta b { color: var(--text); font-weight: 600; }
     .hero-meta .sep { color: var(--border); }
-    .hero-photos {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2px;
+    .hero-photo {
       overflow: hidden;
     }
-    .hero-photo { overflow: hidden; }
     .hero-photo img { width: 100%; height: 100%; object-fit: cover; }
 
     /* ── INFO STRIP ── */
@@ -174,16 +165,29 @@
 
     /* ── LEAD ── */
     .lead { padding: 2.5rem 0 2rem; border-bottom: 1px solid var(--border); }
-    .lead p { font-size: 1rem; line-height: 1.8; color: #333; }
+    .lead p { font-size: 0.88rem; line-height: 1.85; color: #3a3a3a; font-family: var(--font-mono); }
     .lead p + p { margin-top: 0.8rem; }
     .lead strong { color: var(--black); font-weight: 600; }
 
-    /* ── RAZÕES (só texto, sem imagem) ── */
+    /* ── RAZÕES ── */
     .razao {
       padding: 2.5rem 0;
       border-bottom: 1px solid var(--border);
     }
-    .razao-inner { max-width: 680px; }
+    .razao-inner {
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    .razao-img {
+      border-radius: 8px;
+      overflow: hidden;
+      background: var(--light-bg);
+      flex-shrink: 0;
+    }
+    .razao-img img { width: 100%; display: block; }
+    .razao-text {}
     .razao-num {
       font-size: 0.68rem;
       font-weight: 700;
@@ -204,15 +208,15 @@
     }
     .razao-h2 {
       font-size: clamp(1.2rem, 2vw, 1.5rem);
-      font-weight: 800;
+      font-weight: 700;
       line-height: 1.18;
-      color: var(--black);
+      color: #2a2a2a;
       letter-spacing: -0.01em;
       margin-bottom: 0.9rem;
     }
-    .razao-body { font-size: 0.96rem; line-height: 1.78; color: #444; }
+    .razao-body { font-size: 0.88rem; line-height: 1.85; color: #3a3a3a; font-family: var(--font-mono); }
     .razao-body p + p { margin-top: 0.7rem; }
-    .razao-body strong { color: var(--black); font-weight: 600; }
+    .razao-body strong { color: var(--black); font-weight: 500; }
 
     /* ── HIGHLIGHT / PULL QUOTE ── */
     .highlight {
@@ -281,9 +285,10 @@
       max-width: 680px;
     }
     .transition-inner p {
-      font-size: 1rem;
-      line-height: 1.8;
-      color: #333;
+      font-size: 0.88rem;
+      line-height: 1.85;
+      color: #3a3a3a;
+      font-family: var(--font-mono);
     }
     .transition-inner p + p { margin-top: 0.8rem; }
     .transition-inner strong { color: var(--black); font-weight: 600; }
@@ -339,14 +344,30 @@
       letter-spacing: -0.01em;
     }
     .product-h2 em { font-style: normal; color: var(--brand); }
-    .product-desc { font-size: 0.95rem; line-height: 1.75; color: #444; }
+    .product-desc { font-size: 0.88rem; line-height: 1.85; color: #3a3a3a; font-family: var(--font-mono); }
     .product-desc strong { color: var(--black); font-weight: 600; }
 
     /* ── CTA SECTION ── */
     .cta-section {
       background: var(--off-white);
-      padding: 3.5rem 0 4rem;
+      padding: 4rem 0 5rem;
       border-top: 1px solid var(--border);
+    }
+    .cta-above-badge {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+    .cta-above-badge span {
+      background: var(--brand-dark);
+      color: var(--white);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 0.45rem 1.2rem;
+      border-radius: 200px;
+      font-family: var(--font-mono);
     }
     .cta-card {
       background: var(--white);
@@ -355,69 +376,111 @@
       overflow: hidden;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      max-width: 860px;
+      max-width: 900px;
       margin: 0 auto;
+      box-shadow: 0 4px 32px rgba(0,0,0,0.06);
     }
-    .cta-text {
-      padding: 2.8rem 2.5rem 2.8rem 3rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1.1rem;
-    }
-    .cta-eyebrow {
-      font-size: 0.68rem;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--brand);
-    }
-    .cta-h2 {
-      font-size: clamp(1.3rem, 2.2vw, 1.75rem);
-      font-weight: 800;
-      color: var(--black);
-      letter-spacing: -0.01em;
-      line-height: 1.15;
-    }
-    .cta-h2 em { font-style: normal; color: var(--brand); }
-    .cta-discount {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: var(--brand-light);
-      border: 1px solid #c5cbec;
-      border-radius: 8px;
-      padding: 0.6rem 1rem;
-      font-size: 0.9rem;
-      font-weight: 700;
-      color: var(--brand-dark);
-      align-self: flex-start;
-    }
-    .cta-discount .pct {
-      font-size: 1.3rem;
-      font-weight: 800;
-      color: var(--brand);
-    }
-    .cta-p { font-size: 0.88rem; line-height: 1.65; color: var(--text-secondary); }
-    .cta-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      background: var(--brand);
-      color: var(--white);
-      font-weight: 700;
-      font-size: 0.85rem;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      padding: 0.95rem 2rem;
-      border-radius: 200px;
-      align-self: flex-start;
-      transition: background 0.15s;
-    }
-    .cta-btn:hover { background: var(--brand-dark); }
-    .cta-btn svg { width: 14px; height: 14px; }
-    .cta-fine { font-size: 0.68rem; color: var(--text-muted); margin-top: -0.3rem; }
     .cta-img-col { overflow: hidden; }
     .cta-img-col img { width: 100%; height: 100%; object-fit: cover; }
+    .cta-text {
+      padding: 2.8rem 3rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      justify-content: center;
+    }
+    .cta-eyebrow {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .cta-eyebrow::after {
+      content: '';
+      display: block;
+      height: 1px;
+      width: 32px;
+      background: var(--border);
+    }
+    .cta-h2 {
+      font-size: clamp(1.6rem, 2.8vw, 2.4rem);
+      font-weight: 800;
+      color: var(--black);
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      text-transform: uppercase;
+    }
+    .cta-p {
+      font-size: 0.82rem;
+      line-height: 1.65;
+      color: var(--text-secondary);
+      font-family: var(--font-mono);
+    }
+    .cta-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      background: var(--brand-dark);
+      color: var(--white);
+      font-weight: 700;
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 1.05rem 2rem;
+      border-radius: 200px;
+      transition: background 0.15s;
+      font-family: var(--font-mono);
+    }
+    .cta-btn:hover { background: var(--brand); }
+    .cta-timer {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      text-align: center;
+    }
+    .cta-timer span {
+      color: var(--black);
+      font-weight: 800;
+    }
+    .cta-tags {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+    .cta-tag {
+      font-size: 0.68rem;
+      font-family: var(--font-mono);
+      padding: 0.3rem 0.8rem;
+      border-radius: 200px;
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+    }
+    .cta-tag .highlight-red { color: #e03030; font-weight: 700; }
+    .cta-tag .highlight-green { color: #28a745; font-weight: 700; }
+    .cta-guarantee {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-size: 0.78rem;
+      line-height: 1.55;
+      color: var(--text-secondary);
+      font-family: var(--font-mono);
+    }
+    .cta-guarantee svg {
+      flex-shrink: 0;
+      margin-top: 1px;
+      color: var(--brand);
+    }
+    .cta-guarantee strong { color: var(--black); font-weight: 600; }
 
     /* ── FOOTER ── */
     footer {
@@ -433,8 +496,9 @@
     @media (max-width: 860px) {
       .hero { grid-template-columns: 1fr; }
       .hero-content { padding: 2.5rem 1.5rem; }
-      .hero-photos { height: 220px; }
+      .hero-photo { height: 280px; }
       .info-strip-inner { grid-template-columns: 1fr; gap: 1rem; }
+      .razao-inner { grid-template-columns: 1fr; gap: 1.5rem; }
       .t-grid { grid-template-columns: 1fr; }
       .product-inner { grid-template-columns: 1fr; }
       .cta-card { grid-template-columns: 1fr; }
@@ -463,9 +527,14 @@
 <!-- ── HERO ── -->
 <section class="hero">
   <div class="hero-content">
-    <span class="hero-eyebrow">Especial BetterBe™</span>
+    <div class="hero-stars">
+      <span class="stars">★★★★★</span>
+      <span>4.9</span>
+      <span class="sep">|</span>
+      <span>Mais de 10.000 clientes satisfeitos</span>
+    </div>
     <h1 class="hero-h1">
-      7 Razões que Estão Fazendo do Jejum Intermitente o Hábito de Saúde Mais Popular do <em>Brasil</em>
+      7 Razões que Estão Fazendo do Jejum Intermitente o Hábito de Saúde Mais Popular do Brasil
     </h1>
     <p class="hero-sub">
       Milhões de pessoas estão adotando o jejum não só pelo peso, mas pelos efeitos internos no corpo. O que acontece quando você fica algumas horas sem comer impacta diretamente sua energia, foco e saúde.
@@ -478,13 +547,8 @@
       <span>Atualizado em abril de 2026</span>
     </div>
   </div>
-  <div class="hero-photos">
-    <div class="hero-photo">
-      <img src="https://placehold.co/430x540/d8d8d8/aaaaaa" alt="Pessoa praticando jejum" />
-    </div>
-    <div class="hero-photo">
-      <img src="https://placehold.co/430x540/c8c8c8/999999" alt="Saúde celular" />
-    </div>
+  <div class="hero-photo">
+    <img src="https://placehold.co/760x580/d8d8d8/aaaaaa" alt="Pessoa praticando jejum" />
   </div>
 </section>
 
@@ -523,11 +587,16 @@
   <section class="razao">
     <div class="w">
       <div class="razao-inner">
-        <div class="razao-num">Razão 01</div>
-        <h2 class="razao-h2">Ativa a autofagia — o processo de limpeza celular do seu corpo</h2>
-        <div class="razao-body">
-          <p>Durante o jejum, o corpo ativa um processo natural de "limpeza" das células, removendo estruturas danificadas e ajudando na renovação interna.</p>
-          <p>Esse mecanismo está ligado à saúde celular e ao envelhecimento mais equilibrado, <strong>ajudando o corpo a funcionar melhor ao longo do tempo.</strong></p>
+        <div class="razao-img">
+          <img src="https://placehold.co/340x300/e8e8e8/aaaaaa" alt="Autofagia celular" />
+        </div>
+        <div class="razao-text">
+          <div class="razao-num">Razão 01</div>
+          <h2 class="razao-h2">Ativa a autofagia — o processo de limpeza celular do seu corpo</h2>
+          <div class="razao-body">
+            <p>Durante o jejum, o corpo ativa um processo natural de "limpeza" das células, removendo estruturas danificadas e ajudando na renovação interna.</p>
+            <p>Esse mecanismo está ligado à saúde celular e ao envelhecimento mais equilibrado, <strong>ajudando o corpo a funcionar melhor ao longo do tempo.</strong></p>
+          </div>
         </div>
       </div>
     </div>
@@ -537,11 +606,16 @@
   <section class="razao">
     <div class="w">
       <div class="razao-inner">
-        <div class="razao-num">Razão 02</div>
-        <h2 class="razao-h2">Aumenta o BDNF — o "fertilizante" do seu cérebro</h2>
-        <div class="razao-body">
-          <p>O jejum pode estimular substâncias que ajudam o cérebro a criar novas conexões e funcionar com mais eficiência.</p>
-          <p>Na prática, isso pode significar <strong>mais clareza mental, foco e melhor desempenho cognitivo</strong> no dia a dia.</p>
+        <div class="razao-img">
+          <img src="https://placehold.co/340x300/dde0f0/8890c0" alt="Saúde cerebral BDNF" />
+        </div>
+        <div class="razao-text">
+          <div class="razao-num">Razão 02</div>
+          <h2 class="razao-h2">Aumenta o BDNF — o "fertilizante" do seu cérebro</h2>
+          <div class="razao-body">
+            <p>O jejum pode estimular substâncias que ajudam o cérebro a criar novas conexões e funcionar com mais eficiência.</p>
+            <p>Na prática, isso pode significar <strong>mais clareza mental, foco e melhor desempenho cognitivo</strong> no dia a dia.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -551,11 +625,16 @@
   <section class="razao">
     <div class="w">
       <div class="razao-inner">
-        <div class="razao-num">Razão 03</div>
-        <h2 class="razao-h2">Desenvolve a flexibilidade metabólica: seu corpo aprende a usar gordura como energia</h2>
-        <div class="razao-body">
-          <p>Com o tempo, o corpo aprende a alternar entre glicose e gordura como fonte de energia, sem depender de refeições constantes.</p>
-          <p>Isso ajuda a manter <strong>energia mais estável ao longo do dia</strong>, reduzindo picos e quedas que afetam sua disposição.</p>
+        <div class="razao-img">
+          <img src="https://placehold.co/340x300/e0e8d8/88aa70" alt="Flexibilidade metabólica" />
+        </div>
+        <div class="razao-text">
+          <div class="razao-num">Razão 03</div>
+          <h2 class="razao-h2">Desenvolve a flexibilidade metabólica: seu corpo aprende a usar gordura como energia</h2>
+          <div class="razao-body">
+            <p>Com o tempo, o corpo aprende a alternar entre glicose e gordura como fonte de energia, sem depender de refeições constantes.</p>
+            <p>Isso ajuda a manter <strong>energia mais estável ao longo do dia</strong>, reduzindo picos e quedas que afetam sua disposição.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -565,11 +644,16 @@
   <section class="razao">
     <div class="w">
       <div class="razao-inner">
-        <div class="razao-num">Razão 04</div>
-        <h2 class="razao-h2">Reduz a inflamação sistêmica: o inimigo silencioso da longevidade</h2>
-        <div class="razao-body">
-          <p>O jejum pode ajudar a reduzir processos inflamatórios que impactam negativamente a saúde ao longo dos anos.</p>
-          <p>Com menos inflamação, o corpo tende a funcionar de forma mais equilibrada, <strong>apoiando bem-estar e longevidade.</strong></p>
+        <div class="razao-img">
+          <img src="https://placehold.co/340x300/e8e8e8/aaaaaa" alt="Inflamação sistêmica" />
+        </div>
+        <div class="razao-text">
+          <div class="razao-num">Razão 04</div>
+          <h2 class="razao-h2">Reduz a inflamação sistêmica: o inimigo silencioso da longevidade</h2>
+          <div class="razao-body">
+            <p>O jejum pode ajudar a reduzir processos inflamatórios que impactam negativamente a saúde ao longo dos anos.</p>
+            <p>Com menos inflamação, o corpo tende a funcionar de forma mais equilibrada, <strong>apoiando bem-estar e longevidade.</strong></p>
+          </div>
         </div>
       </div>
     </div>
@@ -579,11 +663,16 @@
   <section class="razao">
     <div class="w">
       <div class="razao-inner">
-        <div class="razao-num">Razão 05</div>
-        <h2 class="razao-h2">Melhora a saúde cardiovascular</h2>
-        <div class="razao-body">
-          <p>O jejum pode contribuir para melhorar indicadores relacionados ao coração, como colesterol e pressão arterial.</p>
-          <p>Isso acontece porque ele atua em diferentes fatores do metabolismo, <strong>ajudando o corpo a manter um melhor equilíbrio interno.</strong></p>
+        <div class="razao-img">
+          <img src="https://placehold.co/340x300/dde0f0/8890c0" alt="Saúde cardiovascular" />
+        </div>
+        <div class="razao-text">
+          <div class="razao-num">Razão 05</div>
+          <h2 class="razao-h2">Melhora a saúde cardiovascular</h2>
+          <div class="razao-body">
+            <p>O jejum pode contribuir para melhorar indicadores relacionados ao coração, como colesterol e pressão arterial.</p>
+            <p>Isso acontece porque ele atua em diferentes fatores do metabolismo, <strong>ajudando o corpo a manter um melhor equilíbrio interno.</strong></p>
+          </div>
         </div>
       </div>
     </div>
@@ -593,11 +682,16 @@
   <section class="razao">
     <div class="w">
       <div class="razao-inner">
-        <div class="razao-num">Razão 06</div>
-        <h2 class="razao-h2">Apoia a regulação hormonal e a saúde metabólica</h2>
-        <div class="razao-body">
-          <p>O jejum influencia hormônios ligados à fome, energia e uso de gordura como combustível.</p>
-          <p>Esse ajuste pode ajudar o corpo a funcionar de forma mais eficiente, <strong>apoiando energia e composição corporal.</strong></p>
+        <div class="razao-img">
+          <img src="https://placehold.co/340x300/e8e8e8/aaaaaa" alt="Regulação hormonal" />
+        </div>
+        <div class="razao-text">
+          <div class="razao-num">Razão 06</div>
+          <h2 class="razao-h2">Apoia a regulação hormonal e a saúde metabólica</h2>
+          <div class="razao-body">
+            <p>O jejum influencia hormônios ligados à fome, energia e uso de gordura como combustível.</p>
+            <p>Esse ajuste pode ajudar o corpo a funcionar de forma mais eficiente, <strong>apoiando energia e composição corporal.</strong></p>
+          </div>
         </div>
       </div>
     </div>
@@ -607,13 +701,18 @@
   <section class="razao">
     <div class="w">
       <div class="razao-inner">
-        <div class="razao-num">Razão 07</div>
-        <h2 class="razao-h2">Contribui para o healthspan: o tempo de vida com saúde de verdade</h2>
-        <div class="razao-body">
-          <p>O foco não é só viver mais, mas viver melhor — com energia, disposição e qualidade de vida.</p>
-          <p>O jejum pode apoiar esse processo ao atuar em diferentes mecanismos ligados ao envelhecimento saudável. Em estudos científicos com animais, reduzir a ingestão calórica aumentou a expectativa de vida entre <strong>15% e 45%.</strong></p>
-          <div class="highlight">
-            <p>O jejum vai muito além da estética — é uma das ferramentas mais estudadas para a longevidade saudável.</p>
+        <div class="razao-img">
+          <img src="https://placehold.co/340x320/e0e8d8/88aa70" alt="Healthspan e longevidade" />
+        </div>
+        <div class="razao-text">
+          <div class="razao-num">Razão 07</div>
+          <h2 class="razao-h2">Contribui para o healthspan: o tempo de vida com saúde de verdade</h2>
+          <div class="razao-body">
+            <p>O foco não é só viver mais, mas viver melhor — com energia, disposição e qualidade de vida.</p>
+            <p>O jejum pode apoiar esse processo ao atuar em diferentes mecanismos ligados ao envelhecimento saudável. Em estudos científicos com animais, reduzir a ingestão calórica aumentou a expectativa de vida entre <strong>15% e 45%.</strong></p>
+            <div class="highlight">
+              <p>O jejum vai muito além da estética — é uma das ferramentas mais estudadas para a longevidade saudável.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -700,27 +799,48 @@
 <!-- ── FINAL CTA ── -->
 <section class="cta-section" id="oferta">
   <div class="w">
+    <div class="cta-above-badge">
+      <span>Oferta Exclusiva</span>
+    </div>
     <div class="cta-card">
-      <div class="cta-text">
-        <span class="cta-eyebrow">Oferta exclusiva para novos clientes</span>
-        <h2 class="cta-h2">Torne o seu jejum mais leve com <em>25% de desconto</em></h2>
-        <div class="cta-discount">
-          <span class="pct">25% OFF</span>
-          <span>no Fasting Support BetterBe™</span>
-        </div>
-        <p class="cta-p">Aproveite o desconto exclusivo e experimente o suporte desenvolvido para quem leva o jejum a sério. Com mais conforto e menos esforço.</p>
-        <a href="https://betterbehealth.com.br/products/suporte-de-jejum" class="cta-btn">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          Quero meu desconto de 25%
-        </a>
-        <p class="cta-fine">30 dias de garantia · Frete grátis · Parcelamento disponível</p>
-      </div>
       <div class="cta-img-col">
-        <img src="https://placehold.co/380x440/eef0f8/8890c0" alt="Fasting Support BetterBe™" />
+        <img src="https://placehold.co/450x480/eef0f8/8890c0" alt="Fasting Support BetterBe™" />
+      </div>
+      <div class="cta-text">
+        <span class="cta-eyebrow">Oferta Exclusiva</span>
+        <h2 class="cta-h2">Ganhe até 25% OFF + Frete Grátis</h2>
+        <p class="cta-p">O Fasting Support está com oferta especial por tempo limitado. Aproveite antes do estoque acabar.</p>
+        <a href="https://betterbehealth.com.br/products/suporte-de-jejum" class="cta-btn">Garantir meu desconto →</a>
+        <div class="cta-timer">Oferta reservada por: <span id="timer">06:32:06</span></div>
+        <div class="cta-tags">
+          <span class="cta-tag">Risco de Estoque: <span class="highlight-red">Alto</span></span>
+          <span class="cta-tag"><span class="highlight-green">FRETE</span> Grátis</span>
+        </div>
+        <div class="cta-guarantee">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          <span><strong>Experimente por 30 dias.</strong> Se você não estiver satisfeito, reembolsaremos 100% do valor. Sem burocracia.</span>
+        </div>
       </div>
     </div>
   </div>
 </section>
+
+<script>
+  (function() {
+    var total = 6 * 3600 + 32 * 60 + 6;
+    var el = document.getElementById('timer');
+    function fmt(s) {
+      var h = Math.floor(s/3600), m = Math.floor((s%3600)/60), sec = s%60;
+      return [h,m,sec].map(function(n){return String(n).padStart(2,'0')}).join(':');
+    }
+    el.textContent = fmt(total);
+    var iv = setInterval(function() {
+      if (total <= 0) { clearInterval(iv); return; }
+      total--;
+      el.textContent = fmt(total);
+    }, 1000);
+  })();
+</script>
 
 <!-- ── FOOTER ── -->
 <footer>
