@@ -255,6 +255,30 @@
       grid-template-columns: repeat(3, 1fr);
       gap: 1.2rem;
     }
+    /* carousel on mobile */
+    @media (max-width: 860px) {
+      .t-grid {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        gap: 1rem;
+        padding-bottom: 1rem;
+        scrollbar-width: none;
+      }
+      .t-grid::-webkit-scrollbar { display: none; }
+      .t-card {
+        flex: 0 0 82vw;
+        max-width: 340px;
+        scroll-snap-align: start;
+      }
+      .t-dots {
+        display: flex !important;
+        justify-content: center;
+        gap: 0.5rem;
+        margin-top: 1rem;
+      }
+    }
     .t-card {
       background: var(--white);
       border: 1px solid var(--border);
@@ -264,6 +288,13 @@
       flex-direction: column;
       gap: 0.9rem;
     }
+    .t-dots { display: none; }
+    .t-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--border); transition: background 0.2s;
+      cursor: pointer;
+    }
+    .t-dot.active { background: var(--brand); }
     .t-stars { color: #f4a800; font-size: 0.9rem; letter-spacing: 2px; }
     .t-text { font-size: 0.9rem; line-height: 1.7; color: #444; flex: 1; font-style: italic; }
     .t-author { display: flex; align-items: center; gap: 0.7rem; }
@@ -501,7 +532,7 @@
       .hero-photo { height: 280px; }
       .info-strip-inner { grid-template-columns: 1fr; gap: 1rem; }
       .razao-inner { grid-template-columns: 1fr; gap: 1.5rem; }
-      .t-grid { grid-template-columns: 1fr; }
+      /* .t-grid handled by carousel block above */
       .product-inner { grid-template-columns: 1fr; }
       .cta-card { grid-template-columns: 1fr; }
       .cta-img-col { height: 200px; }
@@ -793,6 +824,7 @@
           </div>
         </div>
       </div>
+      <div class="t-dots" id="tDots"></div>
     </div>
   </section>
 
@@ -841,6 +873,38 @@
       total--;
       el.textContent = fmt(total);
     }, 1000);
+  })();
+</script>
+
+<script>
+  (function() {
+    var grid = document.querySelector('.t-grid');
+    var dotsEl = document.getElementById('tDots');
+    var cards = grid ? grid.querySelectorAll('.t-card') : [];
+    if (!grid || cards.length === 0) return;
+
+    // build dots
+    var dots = [];
+    cards.forEach(function(_, i) {
+      var d = document.createElement('span');
+      d.className = 't-dot' + (i === 0 ? ' active' : '');
+      d.addEventListener('click', function() {
+        cards[i].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+      });
+      dotsEl.appendChild(d);
+      dots.push(d);
+    });
+
+    // update active dot on scroll
+    grid.addEventListener('scroll', function() {
+      var mid = grid.scrollLeft + grid.clientWidth / 2;
+      var closest = 0, minDist = Infinity;
+      cards.forEach(function(c, i) {
+        var dist = Math.abs(c.offsetLeft + c.offsetWidth / 2 - mid);
+        if (dist < minDist) { minDist = dist; closest = i; }
+      });
+      dots.forEach(function(d, i) { d.classList.toggle('active', i === closest); });
+    }, { passive: true });
   })();
 </script>
 
