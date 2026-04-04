@@ -477,7 +477,8 @@
     .cta-tags {
       display: flex;
       gap: 0.6rem;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
+      align-items: center;
     }
     .cta-tag {
       font-size: 0.68rem;
@@ -489,21 +490,32 @@
     }
     .cta-tag .highlight-red { color: #e03030; font-weight: 700; }
     .cta-tag .highlight-green { color: #28a745; font-weight: 700; }
-    .cta-guarantee {
+    .cta-guarantee-box {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1rem 1.2rem;
       display: flex;
-      align-items: flex-start;
-      gap: 0.75rem;
-      font-size: 0.78rem;
-      line-height: 1.55;
-      color: var(--text-secondary);
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .cta-guarantee-title {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.82rem;
+      color: var(--black);
       font-family: var(--font-mono);
     }
-    .cta-guarantee svg {
-      flex-shrink: 0;
-      margin-top: 1px;
-      color: var(--brand);
+    .cta-guarantee-title svg { flex-shrink: 0; color: var(--brand); }
+    .cta-guarantee-title strong { font-weight: 600; }
+    .cta-guarantee-body {
+      font-size: 0.75rem;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      font-family: var(--font-mono);
+      padding-left: 1.6rem;
     }
-    .cta-guarantee strong { color: var(--black); font-weight: 600; }
+    .cta-guarantee-body strong { color: var(--black); font-weight: 600; }
 
     /* ── FOOTER ── */
     footer {
@@ -852,15 +864,18 @@
         <span class="cta-eyebrow">Oferta Exclusiva</span>
         <h2 class="cta-h2">Ganhe até 25% OFF + Frete Grátis</h2>
         <p class="cta-p">O Fasting Support está com oferta especial por tempo limitado. Aproveite antes do estoque acabar.</p>
+        <div class="cta-guarantee-box">
+          <div class="cta-guarantee-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            <strong>Garantia de 30 dias – risco zero</strong>
+          </div>
+          <p class="cta-guarantee-body">Experimente o Fasting Support por 30 dias. Se não sentir diferença no seu jejum, devolvemos <strong>100% do seu dinheiro</strong>. Sem perguntas, sem burocracia.</p>
+        </div>
         <a href="https://betterbehealth.com.br/products/suporte-de-jejum" class="cta-btn">Garantir meu desconto →</a>
         <div class="cta-timer">Oferta reservada por: <span id="timer">06:32:06</span></div>
         <div class="cta-tags">
-          <span class="cta-tag">Risco de Estoque: <span class="highlight-red">Alto</span></span>
+          <span class="cta-tag">Restam apenas <span class="highlight-red">137</span> unidades deste lote</span>
           <span class="cta-tag"><span class="highlight-green">FRETE</span> Grátis</span>
-        </div>
-        <div class="cta-guarantee">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-          <span><strong>Experimente por 30 dias.</strong> Se você não estiver satisfeito, reembolsaremos 100% do valor. Sem burocracia.</span>
         </div>
       </div>
     </div>
