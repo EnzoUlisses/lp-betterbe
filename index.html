@@ -391,27 +391,29 @@
     }
     .cta-eyebrow {
       font-size: 0.65rem;
-      font-weight: 700;
+      font-weight: 500;
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--text-muted);
       font-family: var(--font-mono);
       display: flex;
       align-items: center;
-      gap: 0.6rem;
+      justify-content: center;
+      gap: 0.7rem;
     }
+    .cta-eyebrow::before,
     .cta-eyebrow::after {
       content: '';
       display: block;
       height: 1px;
-      width: 32px;
+      flex: 1;
       background: var(--border);
     }
     .cta-h2 {
       font-size: clamp(1.6rem, 2.8vw, 2.4rem);
-      font-weight: 800;
+      font-weight: 500;
       color: var(--black);
-      letter-spacing: -0.02em;
+      letter-spacing: -0.01em;
       line-height: 1.1;
       text-transform: uppercase;
     }
