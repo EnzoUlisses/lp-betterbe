@@ -194,6 +194,8 @@
     .razao-img.crop-wm { height: 300px; }
     .razao-img.crop-wm img { height: 100%; object-fit: cover; object-position: top left; }
     .razao-img.crop-wm.crop-wm-lg { height: 400px; }
+    .razao-img.crop-wm-sq { height: 250px; }
+    .razao-img.crop-wm-sq img { height: 100%; object-fit: cover; object-position: top left; }
     .razao-img.cover-wm { position: relative; }
     .razao-img.cover-wm::after { content: ''; position: absolute; bottom: 0; right: 0; width: 80px; height: 28px; background: #fff; }
     .razao-text {}
@@ -553,6 +555,7 @@
       .info-strip-inner { grid-template-columns: 1fr; gap: 1rem; }
       .razao-inner { grid-template-columns: 1fr; gap: 1.5rem; }
       .razao-img, .razao-img.crop-wm, .razao-img.crop-wm.crop-wm-lg { height: 360px; }
+      .razao-img.crop-wm-sq { height: 260px; }
       .razao-img img, .razao-img.crop-wm img { height: 100%; width: 100%; object-fit: cover; object-position: top left; }
       /* .t-grid handled by carousel block above */
       .product-inner { grid-template-columns: 1fr; }
@@ -723,7 +726,7 @@
   <section class="razao">
     <div class="w">
       <div class="razao-inner">
-        <div class="razao-img crop-wm">
+        <div class="razao-img crop-wm crop-wm-sq">
           <img src="brand_assets/secao4-jejum.jpg" alt="Inflamação sistêmica" />
         </div>
         <div class="razao-text">
