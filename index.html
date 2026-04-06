@@ -560,9 +560,10 @@
       .cta-img-col { height: 240px; }
       .cta-text { padding: 1.5rem; }
       .cta-h2 { font-size: clamp(1.4rem, 6vw, 2rem); }
-      .cta-tags { flex-wrap: nowrap; }
-      .cta-tag { font-size: 0.65rem; white-space: normal; flex: 1; padding: 0.45rem 0.6rem; }
-      .cta-tag:last-child { flex: 0 0 auto; white-space: nowrap; }
+      .cta-tags { flex-wrap: nowrap; font-size: clamp(0.45rem, 2.2vw, 0.65rem); }
+      .cta-tag { white-space: nowrap; padding: 0.45rem 0.5rem; flex: 0 1 auto; }
+      .cta-tag:first-child { flex: 1 1 auto; }
+      .cta-tag:last-child { flex: 0 0 auto; }
     }
     @media (max-width: 600px) {
       .w { padding: 0 1rem; }
@@ -663,8 +664,8 @@
   <section class="razao">
     <div class="w">
       <div class="razao-inner">
-        <div class="razao-img">
-          <img src="brand_assets/secao1-jejum.jpg" alt="Autofagia celular" />
+        <div class="razao-img crop-wm">
+          <img src="brand_assets/secao1-celulas.jpg" alt="Autofagia celular" />
         </div>
         <div class="razao-text">
           <div class="razao-num">Razão 01</div>
@@ -740,7 +741,7 @@
     <div class="w">
       <div class="razao-inner">
         <div class="razao-img crop-wm">
-          <img src="brand_assets/secao5-celulas.jpg" alt="Saúde cardiovascular" />
+          <img src="brand_assets/secao5-coracao.jpg" alt="Saúde cardiovascular" />
         </div>
         <div class="razao-text">
           <div class="razao-num">Razão 05</div>
