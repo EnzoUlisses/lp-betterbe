@@ -319,7 +319,7 @@
 
     /* ── QUESTION LABEL ── */
     .question-label {
-      font-size: 0.95rem;
+      font-size: 1.25rem;
       font-weight: 700;
       color: var(--brand);
       margin-bottom: 0.2rem;
@@ -551,7 +551,7 @@
       .info-strip-inner { grid-template-columns: 1fr; gap: 1rem; }
       .razao-inner { grid-template-columns: 1fr; gap: 1.5rem; }
       .razao-img, .razao-img.crop-wm, .razao-img.crop-wm.crop-wm-lg { height: 360px; }
-      .razao-img img, .razao-img.crop-wm img { height: 100%; width: 100%; object-fit: cover; object-position: center top; }
+      .razao-img img, .razao-img.crop-wm img { height: 100%; width: 100%; object-fit: cover; object-position: top left; }
       /* .t-grid handled by carousel block above */
       .product-inner { grid-template-columns: 1fr; }
       .product-img { order: 2; }
@@ -561,8 +561,8 @@
       .cta-text { padding: 1.5rem; }
       .cta-h2 { font-size: clamp(1.4rem, 6vw, 2rem); }
       .cta-tags { flex-wrap: nowrap; }
-      .cta-tag { font-size: 0.65rem; white-space: normal; flex: 1; }
-      .cta-tag:last-child { flex: 0 0 auto; }
+      .cta-tag { font-size: 0.65rem; white-space: normal; flex: 1; padding: 0.45rem 0.6rem; }
+      .cta-tag:last-child { flex: 0 0 auto; white-space: nowrap; }
     }
     @media (max-width: 600px) {
       .w { padding: 0 1rem; }
@@ -815,7 +815,7 @@
         <div class="product-text">
           <p class="question-label">Você tem interesse em fazer jejum?</p>
           <div class="product-tag">Conheça o produto</div>
-          <h2 class="product-h2">Fasting Support da <em>BetterBe™</em></h2>
+          <h2 class="product-h2">Fasting Support da <em style="color:#000;">BetterBE</em></h2>
           <div class="product-desc">
             <p>Desenvolvido para apoiar quem faz jejum, ajudando a reduzir desconfortos comuns como fome e falta de energia.</p>
             <p>Uma forma mais prática de <strong>manter consistência no jejum</strong>, com mais equilíbrio e bem-estar no dia a dia.</p>
